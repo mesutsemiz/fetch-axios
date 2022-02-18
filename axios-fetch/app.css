@@ -1,0 +1,26 @@
+*{box-sizing: border-box;
+    margin-top: 100px;
+    
+
+}
+
+#control-center{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    
+    background-color: blue;
+}
+
+#get-btn{
+    padding: 10px;
+    margin: 10px;
+    background-color: green;
+    color: white;
+}
+#post-btn{
+    padding: 10px;
+    margin: 10px;
+    background-color:red;
+    color: white;
+}
