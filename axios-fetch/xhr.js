@@ -1,31 +1,41 @@
 const getBtn = document.getElementById("get-btn");
 const postBtn = document.getElementById("post-btn");
 
-console.log(getBtn)
 
-
-const getData = () => {
-    getBtn.style.backgroundColor = "orange"
- 
-    const xhr = new XMLHttpRequest();
+const sendHttpRequest = (method, url)=>{
+    const promise = new Promise((resolve, reject)=>{
+        const xhr = new XMLHttpRequest();
     
-    xhr.open('GET','https://reqres.in/api/users' );
+    xhr.open(method,url );
 
     xhr.responseType = "json";
 
 
     xhr.onload = ()=>{
-        const data=xhr.response;
-        console.log(data.data[0])
+        resolve(xhr.response);
     }
 
 
     xhr.send();
-}
+
+    });
+    return promise;
+    
+
+};
 
 
 
-const sendData = () => {}
+const getData = () => { 
+    sendHttpRequest('GET', 'https://regres.in/api/users').then(responseData=>{
+        console.log(responseData);
+
+    })
+};
+
+
+
+const sendData = () => {};
 
 getBtn.addEventListener("click", getData);
 
